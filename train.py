@@ -12,7 +12,7 @@ import torch
 # setting parser
 parser = argparse.ArgumentParser()
 parser.add_argument('--cfg_path', type=str, default='configs/')
-parser.add_argument('--default_cfg_path', type=str, default='configs/default.yaml')
+parser.add_argument('--default_cfg_path', type=str, default='./configs/default.yaml')
 parser.add_argument('--checkpoint', type=str, default=None)
 parser.add_argument('--eval_only', action='store_true', default=False)
 opt = parser.parse_args()

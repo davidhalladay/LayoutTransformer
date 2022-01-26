@@ -13,7 +13,7 @@ import pickle
 from .base_data_loader import BaseDataLoader
 from .COCODataset import COCORelDataset, COCOLayoutDataset
 from .VGmsdnDataset import VGmsdnRelDataset, VGmsdnLayoutDataset
-from .VGDataset import BboxDataset, RelDataset, Rel2Layout_Dataset
+# from .VGDataset import BboxDataset, RelDataset, Rel2Layout_Dataset
 
 
 class DataLoader(BaseDataLoader):

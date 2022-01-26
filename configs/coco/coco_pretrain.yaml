@@ -17,6 +17,9 @@ MODEL:
         SCHEDULE_SAMPLE: False
         TWO_PATH: False
         GLOBAL_FEATURE: False
+        GREEDY: True
+        XY_TEMP: 1.
+        WH_TEMP: 1.
     REFINE:
         REFINE: True
         HEAD_TYPE: 'Linear'
@@ -30,14 +33,16 @@ MODEL:
         WEIGHT_COARSE_BOX_LOSS: 0.1
         WEIGHT_REFINE_BOX_LOSS: 1.
         KD_LOSS: True
+        TOPK: 5
 DATASETS:
     NAME: 'coco'
-    DATA_DIR_PATH: './data/coco/'
+    DATA_DIR_PATH: '../../datasets/coco/annotations'
 DATALOADER:
     SMART_SAMPLING: True
     SHUFFLE: True
     VAL_SPLIT: 0.1
     NUM_WORKER: 0
+    OBJ_ID_MODULE_V2: False
 SOLVER:
     EPOCHS: 50
     BATCH_SIZE: 64
@@ -61,6 +66,8 @@ OUTPUT:
     OUTPUT_DIR: 'saved/coco_F_pretrain_no_linear'
 TEST:
     MODE: 'model'
+    TEST_IS_MASK: False
+    LAYOUT_MODE: "saved/coco_F_seq2seq_v9_ablation_baseline/layout_5000"
     RANDOM: False
     SAMPLE_IDX: -1
     OUTPUT_DIR: 'saved/coco_F_pretrain_no_linear/test/'
