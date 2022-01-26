@@ -15,6 +15,11 @@ MODEL:
         HEAD_TYPE: 'GMM' # 'GMM', 'Linear'
         BOX_LOSS: 'PDF' # for 'GMM' -> 'PDF', for 'Linear' -> 'Reg'
         SCHEDULE_SAMPLE: False
+        TWO_PATH: False
+        GLOBAL_FEATURE: True
+        GREEDY: True
+        XY_TEMP: 1.
+        WH_TEMP: 1.
     REFINE:
         REFINE: False
         HEAD_TYPE: 'Linear'
@@ -25,11 +30,14 @@ MODEL:
     LOSS:
         WEIGHT_VOCAB_LOSS: 1.8
         WEIGHT_TYPE_LOSS: 0.1
-        WEIGHT_BOX_LOSS: 0.1
-        KD_LOSS: True
+        WEIGHT_COARSE_BOX_LOSS: 0.1
+        WEIGHT_REFINE_BOX_LOSS: 1.
+        KD_LOSS: False
+        TOPK: 5
 DATASETS:
     NAME: 'vg_msdn'
-    DATA_DIR_PATH: './data/vg_msdn/'
+    COCO_ADDON: False
+    DATA_DIR_PATH: '../../datasets//data/vg_msdn/'
 DATALOADER:
     SMART_SAMPLING: True
     SHUFFLE: True
@@ -58,6 +66,8 @@ OUTPUT:
     OUTPUT_DIR: 'saved/vg_msdn_F_pretrain_no_linear'
 TEST:
     MODE: 'model'
+    TEST_IS_MASK: False
+    LAYOUT_MODE: 'saved/vg_msdn_F_seq2seq_v24/test_3/layout'
     RANDOM: False
     SAMPLE_IDX: -1
     OUTPUT_DIR: 'saved/vg_msdn_F_pretrain_no_linear/test/'

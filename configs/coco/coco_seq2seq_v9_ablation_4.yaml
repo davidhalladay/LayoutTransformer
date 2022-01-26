@@ -36,7 +36,7 @@ MODEL:
         TOPK: 5
 DATASETS:
     NAME: 'coco'
-    DATA_DIR_PATH: '../../datasets/coco/'
+    DATA_DIR_PATH: '../../datasets/coco/annotations'
 DATALOADER:
     SMART_SAMPLING: True
     SHUFFLE: True
@@ -46,7 +46,7 @@ DATALOADER:
 SOLVER:
     EPOCHS: 50
     BATCH_SIZE: 64
-    PRETRAIN_WEIGHT: './saved/coco_F_pretrain_no_linear/checkpoint_50_0.0.pth'
+    PRETRAIN_WEIGHT: ''
     ENCODER:
         LR_SCHEDULER: 'BertScheduler'   # BaseScheduler, ChrisScheduler, BertScheduler
         WARMUP_RATIO: 0.

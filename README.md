@@ -7,6 +7,10 @@ Pytorch implementation for LT-Net. The goal is to generate scene layout with con
 ### Overview
 <img src="./figures/archi.png" width="940px" height="360px"/>
 
+### UPdates
+- The training code on the VG-msdn dataset might have some minor errors. We will fix them ASAP.
+
+
 ### Data
 - COCO dataset
     - Download the annotations from [COCO](https://cocodataset.org/#download).
