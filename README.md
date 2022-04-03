@@ -55,8 +55,9 @@ python3 train.py --cfg_path ./configs/vg_msdn/vg_msdn_seq2seq_v24.yaml
 
 `*.yml` files include configuration for training and testing.
 
+> Please note that you might need to modify the config file to fit the corresponding path on your device if the data is placed in other places.
 
-### Pretrained Model Weights (TODO) 
+### Pretrained Model Weights
 Google drive: [Download](https://drive.google.com/drive/folders/1pPJxX0ih6pgUpKjeIjIICso6SpOGHoaI?usp=sharing)
 #### Obj/Rel Predictor 
 - [COCO](https://drive.google.com/drive/folders/1I6Hfkdv58_mkT7JJhnIR5we3TTM_L-mN?usp=sharing). Download and save it to `saved/coco_F_pretrain_no_linear`
