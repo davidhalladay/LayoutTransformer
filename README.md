@@ -10,6 +10,17 @@ Pytorch implementation for LT-Net. The goal is to generate scene layout with con
 ### UPdates
 - The training code on the VG-msdn dataset might have some minor errors. We will fix them ASAP.
 
+### Data
+- Please setup conda envirnment first by following command.
+    - Create conda env
+```
+conda create -n ltnet python=3.6
+conda activate ltnet
+```
+    - Install pip packages
+```
+pip install -r requirements.txt 
+```
 
 ### Data
 - COCO dataset
@@ -46,17 +57,33 @@ python3 train.py --cfg_path ./configs/vg_msdn/vg_msdn_seq2seq_v24.yaml
 
 
 ### Pretrained Model Weights (TODO) 
+Google drive: [Download](https://drive.google.com/drive/folders/1pPJxX0ih6pgUpKjeIjIICso6SpOGHoaI?usp=sharing)
 #### Obj/Rel Predictor 
-- [COCO](https://github.com/davidhalladay/LayoutTransformer). Download and save it to `saved/coco_model_weights`
-- [VG-MSDN](https://github.com/davidhalladay/LayoutTransformer). Download and save it to `saved/vg_model_weights`
+- [COCO](https://drive.google.com/drive/folders/1I6Hfkdv58_mkT7JJhnIR5we3TTM_L-mN?usp=sharing). Download and save it to `saved/coco_F_pretrain_no_linear`
+- [VG-MSDN](https://drive.google.com/drive/folders/1E3ZQgMEAr5yoIRzcQHmUltfLOnrgHVch?usp=sharing). Download and save it to `saved/vg_msdn_F_pretrain_no_linear`
 #### LT-Net Full Model 
-- [COCO](https://github.com/davidhalladay/LayoutTransformer). Download and save it to `saved/coco_model_weights`
-- [VG-MSDN](https://github.com/davidhalladay/LayoutTransformer). Download and save it to `saved/vg_model_weights`
+- [COCO](https://drive.google.com/drive/folders/1pDHGIob1nc480AysXgdAqO8BIBUaS9r-?usp=sharing). Download and save it to `saved/coco_F_seq2seq_v9_ablation_4`
+- [VG-MSDN](https://drive.google.com/drive/folders/1F9J2t9QAHCdcSYZKI3lLkDJcVAQh2jpD?usp=sharing). Download and save it to `saved/vg_msdn_F_seq2seq_v24`
 
 ### Evaluation
 
-TODO
-
+#### LayoutTransformer full model   
+- Evaluate full model for COCO dataset: (Please download or train your LayoutTransformer for COCO first.)
+```
+python3 train.py --cfg_path [PATH_TO_CONFIG_FILE] --checkpoint [PATH_TO_THE_WEIGHT_FOR_LAYOUTTRASFORMER] --eval_only
+```
+For example,
+```
+python3 train.py --cfg_path configs/coco/coco_seq2seq_v9_ablation_4.yaml --checkpoint ./saved/coco_F_seq2seq_v9_ablation_4/checkpoint_50_0.44139538748348955.pth --eval_only
+```
+- Evaluate full model for VG-MSDN dataset: (Please download or train your LayoutTransformer for vg-msdn first.)
+```
+python3 train.py --cfg_path [PATH_TO_CONFIG_FILE] --checkpoint [PATH_TO_THE_WEIGHT_FOR_LAYOUTTRASFORMER] --eval_only
+```
+For example,
+```
+python3 train.py --cfg_path configs/vg_msdn/vg_msdn_seq2seq_v24.yaml --checkpoint ./saved/vg_msdn_F_seq2seq_v24/checkpoint_50_0.16316922369277578.pth --eval_only
+```
 ### Citation
 
 If you find this useful for your research, please use the following.

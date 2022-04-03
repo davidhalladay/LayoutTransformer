@@ -46,7 +46,7 @@ DATALOADER:
 SOLVER:
     EPOCHS: 50
     BATCH_SIZE: 64
-    PRETRAIN_WEIGHT: ''
+    PRETRAIN_WEIGHT: './saved/coco_F_pretrain_no_linear/checkpoint_50_0.0.pth'
     ENCODER:
         LR_SCHEDULER: 'BertScheduler'   # BaseScheduler, ChrisScheduler, BertScheduler
         WARMUP_RATIO: 0.
